@@ -4,12 +4,10 @@
 #SBATCH --output=pool2.out
 #SBATCH --error=pool2.err
 #SBATCH --time=infinite
-#SBATCH --partition=512x64-ib
-#SBATCH --qos=ib
-#SBATCH --account=ib
+#SBATCH --partition=256x20
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=20
 #SBATCH --mem=0
 
 # Load modules
