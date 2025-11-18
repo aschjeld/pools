@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#SBATCH --job-name=pool2
+#SBATCH --output=pool2.out
+#SBATCH --error=pool2.err
+#SBATCH --time=infinite
+#SBATCH --partition=512x64-ib
+#SBATCH --qos=ib
+#SBATCH --account=ib
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=0
+
+# Load modules
+module load java/8u151
+module load bwa/0.7.17
+module load samtools/1.16.1
+module load perl/5.40.0
+
+# Load modules for perl
+curl -L https://cpanmin.us | perl - App::cpanminus
+cpanm --quiet --notest Text::NSP
+
+# Debug info
+module list
+echo "PATH=$PATH"
+which unzip
+which bwa
+which samtools
+which perl
+which java
+
+# Silence locale warnings
+export LC_ALL=C
+export LANG=C
+
+# Go to working directory where the script and data are
+cd /hb/groups/kay_lab/popoolation2/pools
+
+# Run the twopops script
+bash pool2.sh
