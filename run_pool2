@@ -36,7 +36,7 @@ export LC_ALL=C
 export LANG=C
 
 # Go to working directory where the script and data are
-cd /hb/groups/kay_lab/popoolation2/pools
+cd /hb/groups/kay_lab/popoolation2/pool2
 
 # Run the twopops script
 bash pool2.sh
